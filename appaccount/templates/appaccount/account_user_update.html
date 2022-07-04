@@ -1,0 +1,15 @@
+{%  extends 'main_page.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto">
+    <div class="mb-4" style="font-family: 'EF_WAKEUP';">
+        <h4>관리자 정보 변경</h4>
+    </div>
+        <form action="{% url 'appaccount:update' pk=user_name.pk %}" method="post">
+            {%  csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3" style="font-family: 'EF_WAKEUP';">
+        </form>
+    </div>
+{% endblock %}

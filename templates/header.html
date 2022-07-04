@@ -1,0 +1,39 @@
+<!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div style = "text-align:center;margin-top:1rem;margin-bottom:0.5rem;">
+    <div class=main_header_title>
+
+        <div class=main_header_title_name>
+        <div>
+            <a style="font-size:2.5rem;">HHT</a>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+<div style = "text-align:center;margin-top:0.4rem;">
+    <div style="font-size:1rem; font-family: 'GangwonEduPowerExtraBoldA'; text-decoration-line=none;">
+        <span>서비스소개</span> |
+        <span>현재상황</span> |
+        {% if not user.is_authenticated %}
+        <a href="{% url 'appaccount:login' %}?next={{ request.path }}">
+            <span>로그인</span> |
+        </a>
+        <a href="{% url 'appaccount:create' %}?next={{ request.path }}">
+            <span>회원가입</span>
+        </a>
+        {% else %}
+        <a>
+            <span>관리자시스템</span> |
+        </a>
+        <a href="{% url 'appaccount:detail' pk=user.pk %}">
+            <span>회원정보확인</span> |
+        </a>
+        <a href="{% url 'appaccount:logout' %}?next={{ request.path }}">
+            <span>로그아웃</span>
+        </a>
+        {% endif%}
+    </div>
+
+</div>

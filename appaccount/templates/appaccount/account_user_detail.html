@@ -1,0 +1,26 @@
+{% extends 'main_page.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style="text-align: center; max-width: 500px; margin: 2rem auto">
+        <p>
+            {{ user_name.date_joined }}
+        </p>
+        <p>
+            {{ user_name.username }}
+        </p>
+        {% if user_name == user %}
+        <a href="{% url 'appaccount:update' pk=user_name.pk %}">
+            <p style="font-family: 'EF_WAKEUP';">
+                관리자 정보 변경
+            </p>
+        <a href="{% url 'appaccount:delete' pk=user_name.pk %}">
+            <p style="font-family: 'EF_WAKEUP';">
+                관리자 회원 탈퇴
+            </p>
+        </a>
+        {% endif %}
+        
+    </div> 
+
+{% endblock %}

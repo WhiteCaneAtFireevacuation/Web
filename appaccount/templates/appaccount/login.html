@@ -1,0 +1,19 @@
+{% extends 'main_page.html'%}
+{%load bootstrap4%}
+{% block content %}
+
+    <div style="text-align: center">
+        <div class="login_out" style="font-family: 'EF_WAKEUP';">
+            <h4>로그인</h4>
+        </div>
+        <div class="login_out">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-dark rounded-pill col-6 mt-2"  style="font-family: 'EF_WAKEUP';">
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'main_page.html'%}
+
+{% block content%}
+
+<div style=" border-radius: 1rem; margin: 2rem; text-align:center">
+    <h3 style="padding:2rem">
+        Body
+    </h3>
+  
+   
+    <form action= "/account/hello_world/" method=post> 
+       <!-- post란 method를 통해서 링크로 보내줌-->
+        {% csrf_token %}<!-- 항상 써야함-->
+        <div>
+            <input type="text" name="hello_world_input">
+        </div>
+
+        <input  type="submit" class="btn btn-primary" value="POST">
+
+    </form> <!-- 서버에 보내는 요청명세서 같은 역할 views.py에 잘 적혀 있음-->
+
+
+    {% if hello_world_list %} 
+        {% for hello_world in hello_world_list %}
+        <h6>
+            {{hello_world.text}}
+        </h6>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
