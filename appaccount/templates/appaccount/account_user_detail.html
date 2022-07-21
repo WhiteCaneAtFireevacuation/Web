@@ -10,11 +10,11 @@
             {{ user_name.username }}
         </p>
         {% if user_name == user %}
-        <a href="{% url 'appaccount:update' pk=user_name.pk %}">
+        <a id="nav_var" href="{% url 'appaccount:update' pk=user_name.pk %}">
             <p style="font-family: 'EF_WAKEUP';">
                 관리자 정보 변경
             </p>
-        <a href="{% url 'appaccount:delete' pk=user_name.pk %}">
+        <a id="nav_var" href="{% url 'appaccount:delete' pk=user_name.pk %}">
             <p style="font-family: 'EF_WAKEUP';">
                 관리자 회원 탈퇴
             </p>

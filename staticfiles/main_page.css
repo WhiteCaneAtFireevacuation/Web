@@ -42,4 +42,10 @@
     font-family: 'GangwonEdu_OTFBoldA';
 }
 
+#nav_var a{
 
+    text-align: center;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit;
+
+}

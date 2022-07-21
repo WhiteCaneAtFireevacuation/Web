@@ -21,10 +21,10 @@
         {% if Post.important is True %}
             <label> 
             <input type = "checkbox" name = "important" value ="True" checked> 안내사항을 이해하였으며 주의사항을 확인하였습니다</label> 
-            {% else %}
+        {% else %}
             <label> <input type = "checkbox" name = "important" value = "False"> 안내사항을 이해하였으며 주의사항을 확인하였습니다<br>
             </label> 
-            {% endif %}
+        {% endif %}
         </div>
     </div>
         <form action="{% url 'appaccount:delete' pk=user_name.pk %}" method="post">

@@ -13,24 +13,24 @@
 </div>
 
 <div style = "text-align:center;margin-top:0.4rem;">
-    <div style="font-size:1rem; font-family: 'GangwonEduPowerExtraBoldA'; text-decoration-line=none;">
+        <a id="nav_var" href="{% url 'front' %}?next={{ request.path }}">
         <span>서비스소개</span> |
-        <span>현재상황</span> |
+        </a>
         {% if not user.is_authenticated %}
-        <a href="{% url 'appaccount:login' %}?next={{ request.path }}">
+        <a id="nav_var" href="{% url 'appaccount:login' %}?next={{ request.path }}">
             <span>로그인</span> |
         </a>
-        <a href="{% url 'appaccount:create' %}?next={{ request.path }}">
+        <a id="nav_var" href="{% url 'appaccount:create' %}?next={{ request.path }}">
             <span>회원가입</span>
         </a>
         {% else %}
-        <a>
-            <span>관리자시스템</span> |
+        <a id="nav_var" >
+            <span>화재상황</span> |
         </a>
-        <a href="{% url 'appaccount:detail' pk=user.pk %}">
+        <a id="nav_var" href="{% url 'appaccount:detail' pk=user.pk %}">
             <span>회원정보확인</span> |
         </a>
-        <a href="{% url 'appaccount:logout' %}?next={{ request.path }}">
+        <a id="nav_var" href="{% url 'appaccount:logout' %}?next={{ request.path }}">
             <span>로그아웃</span>
         </a>
         {% endif%}

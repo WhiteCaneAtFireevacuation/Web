@@ -12,7 +12,6 @@ from django.contrib.auth.models import User
 from appaccount.forms import AccountUserCreationForm, AccountUserUpdateForm
 
 
-
 def hello_world(request):
     #return HttpResponse('히히')
     
@@ -57,11 +56,4 @@ class AccountUserDeleteView(DeleteView):
     context_object_name = 'user_name'
     success_url = reverse_lazy('appaccount:login')
     template_name = 'appaccount/account_user_delete.html'
-    
-"""
-class AccountUserDeleteConfirmView():
-    model = User
-    context_object_name = 'user_name'
-    success_url = reverse_lazy('appaccount:delete')
-    template_name = 'appaccount/account_user_delete_confirm.html'
-"""
+ 

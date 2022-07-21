@@ -1,3 +1,4 @@
+from multiprocessing import AuthenticationError
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
@@ -27,3 +28,22 @@ class AccountUserCreationForm(UserCreationForm):
         self.fields['username'].label="아이디"
         self.fields['password1'].label="패스워드"
         self.fields['password2'].label="패스워드확인"
+        
+   
+class LoginForm(AuthenticationError):
+    answer = forms.IntegerField(help_text='3 + 3 = ?')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        #help_text
+        self.fields['username'].help_text = ""
+        self.fields['password1'].help_text = "특수문자,숫자,문자 모두 포함해야 합니다"
+        self.fields['password2'].help_text = "패스워드를 다시 입력하세요"
+        #rename
+        self.fields['username'].label="아이디"
+        self.fields['password1'].label="패스워드"
+        self.fields['password2'].label="패스워드확인"
+    def clean_answer(self): # 회원가입 벨리데이션 추가
+        answer = self.cleaned_data.get('answer')
+        if answer != 6:  
+            raise forms.ValidationError('땡~')
+        return answer

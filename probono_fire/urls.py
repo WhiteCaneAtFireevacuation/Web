@@ -16,7 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+#이미지 url 
+from django.conf.urls.static import static
+from django.conf import settings
+
+from probono_fire.views import front_page
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('appaccount.urls'))
-]
+    path('account/', include('appaccount.urls')),
+    path('',front_page,name='front'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

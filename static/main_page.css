@@ -45,3 +45,11 @@
 .text_p{
     margin: 0px 0px 8px;
 }
+
+#nav_var{
+
+    text-align: center;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit;
+
+}
