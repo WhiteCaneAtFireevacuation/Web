@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appaccount',
     'bootstrap4',
+    'fire_situation',
 ]
 
 MIDDLEWARE = [
