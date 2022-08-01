@@ -24,7 +24,7 @@
             <span>회원가입</span>
         </a>
         {% else %}
-        <a id="nav_var" >
+        <a id="nav_var" href="{% url 'fire_situation:situation' %}?next={{ request.path }}">
             <span>화재상황</span> |
         </a>
         <a id="nav_var" href="{% url 'appaccount:detail' pk=user.pk %}">
